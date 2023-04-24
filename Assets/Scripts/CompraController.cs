@@ -6,6 +6,7 @@ public class CompraController : MonoBehaviour {
 
     Renderer rend;
     public Material[] materials;
+
     public Transform box;
     public CanvasGroup background;
 
