@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CasaController
     - CompraController
     - DadoController
+    - DiceSwipeControl
     - InterfaceController
     - PlayerController
     - SelecionarController
@@ -107,44 +108,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1808}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2386}
+      Script: {instanceID: 2388}
     - Class: 114
-      Script: {instanceID: 2798}
+      Script: {instanceID: 2800}
     - Class: 114
-      Script: {instanceID: 3002}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3276}
+      Script: {instanceID: 3278}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 3336}
     - Class: 114
-      Script: {instanceID: 3706}
+      Script: {instanceID: 3708}
     - Class: 114
-      Script: {instanceID: 4262}
+      Script: {instanceID: 4264}
     - Class: 114
-      Script: {instanceID: 4510}
+      Script: {instanceID: 4420}
     - Class: 114
-      Script: {instanceID: 4914}
+      Script: {instanceID: 4514}
     - Class: 114
-      Script: {instanceID: 5198}
+      Script: {instanceID: 4918}
     - Class: 114
-      Script: {instanceID: 5444}
+      Script: {instanceID: 5202}
     - Class: 114
-      Script: {instanceID: 5740}
+      Script: {instanceID: 5448}
     - Class: 114
-      Script: {instanceID: 5884}
+      Script: {instanceID: 5744}
     - Class: 114
-      Script: {instanceID: 6194}
+      Script: {instanceID: 5888}
     - Class: 114
-      Script: {instanceID: 6482}
+      Script: {instanceID: 6200}
     - Class: 114
-      Script: {instanceID: 7412}
+      Script: {instanceID: 6488}
     - Class: 114
-      Script: {instanceID: 7550}
+      Script: {instanceID: 7418}
     - Class: 114
-      Script: {instanceID: 7652}
+      Script: {instanceID: 7556}
+    - Class: 114
+      Script: {instanceID: 7658}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -622,6 +627,12 @@ ScriptsOnlyBuild:
     className: PathBezier2d
   - hash:
       serializedVersion: 2
+      Hash: d10641a00262988d45d49cc16647a22e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DiceSwipeControl
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -832,6 +843,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 3cbe666ec9286af7a00a01dc706e2ee4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Dice
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1030,7 +1047,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 691a7620e5bf13b354f7224a7931bd1d
+      Hash: 4221a69e971d7c98ab52f9ac4667737e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DadoController

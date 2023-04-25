@@ -17,7 +17,7 @@ public class SelecionarController : MonoBehaviour {
             highlight = null;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit) && !(ultimoSelecionado != null && ultimoSelecionado == raycastHit.transform)) {
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit) && !(ultimoSelecionado == raycastHit.transform)) {
 
             if (ultimoSelecionado != null) {
                 ultimoSelecionado = null;
@@ -47,7 +47,9 @@ public class SelecionarController : MonoBehaviour {
             } else {
                 Transform selecionado = raycastHit.transform;
                 selection.Remove(selecionado);
-                selecionado.gameObject.GetComponent<Outline>().enabled = false;
+                if(selecionado.gameObject.GetComponent<Outline>() != null) {
+                    selecionado.gameObject.GetComponent<Outline>().enabled = false;
+                }
                 ultimoSelecionado = selecionado;
             }
 
