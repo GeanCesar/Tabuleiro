@@ -13,6 +13,7 @@ public class Variaveis {
     public static bool iniciou = false;
     public static int quantidadePlayers = 4;
     public static int valorAAdicionar = 2000;
+    public static bool mostraOutlineRolagem = false;
 
     static Variaveis() {
         montaJogadores();

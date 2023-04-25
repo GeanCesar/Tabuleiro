@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
         gameObject.GetComponent<Rigidbody>().useGravity = true;
-
+        Variaveis.mostraOutlineRolagem = false;
     }
 
 }

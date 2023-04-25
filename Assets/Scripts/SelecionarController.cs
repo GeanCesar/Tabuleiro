@@ -11,8 +11,18 @@ public class SelecionarController : MonoBehaviour {
     private Transform ultimoSelecionado;
 
     void Update() {
+
+        if (Variaveis.mostraOutlineRolagem)
+            return;
+
         // Highlight
         if (highlight != null) {
+            if (highlight.gameObject.GetComponent<Outline>() != null) {
+                highlight.gameObject.GetComponent<Outline>();
+            } else {
+                highlight.gameObject.AddComponent<Outline>();
+            }
+
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
         }
@@ -27,6 +37,8 @@ public class SelecionarController : MonoBehaviour {
             if (highlight.CompareTag("Casa") && !selection.Contains(highlight)) {
                 if (highlight.gameObject.GetComponent<Outline>() != null) {
                     highlight.gameObject.GetComponent<Outline>().enabled = true;
+                    highlight.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                    highlight.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
                 } else {
                     Outline outline = highlight.gameObject.AddComponent<Outline>();
                     outline.enabled = true;
@@ -43,12 +55,16 @@ public class SelecionarController : MonoBehaviour {
             if (raycastHit.transform.CompareTag("Casa") && !selection.Contains(raycastHit.transform)) {
                 Transform selecionado = raycastHit.transform;
                 selecionado.gameObject.GetComponent<Outline>().enabled = true;
+                selecionado.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                selecionado.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
                 selection.Add(selecionado);
             } else {
                 Transform selecionado = raycastHit.transform;
                 selection.Remove(selecionado);
-                if(selecionado.gameObject.GetComponent<Outline>() != null) {
+                if (selecionado.gameObject.GetComponent<Outline>() != null) {
                     selecionado.gameObject.GetComponent<Outline>().enabled = false;
+                    selecionado.gameObject.GetComponent<Outline>().OutlineColor = Color.red;
+                    selecionado.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
                 }
                 ultimoSelecionado = selecionado;
             }

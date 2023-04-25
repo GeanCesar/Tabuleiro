@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 public class DadoController : MonoBehaviour {
@@ -11,6 +12,8 @@ public class DadoController : MonoBehaviour {
     public GameObject botao;
 
     public Text texto;
+
+    Color colorOutLine;
 
     public void rodou() {
         botao.SetActive(false);
@@ -37,7 +40,43 @@ public class DadoController : MonoBehaviour {
 
         texto.text = (numero1 + numero2) + "";
 
+        // Pega a casa onde ira cair para mostrar o Outline
+        Player player = Variaveis.getPlayerJogando();
+        int casaPlayer = player.casa;
+
+        casaPlayer += (numero1 + numero2);
+        if (casaPlayer > 31) {
+            casaPlayer = casaPlayer - 32;
+        }
+
+        Variaveis.mostraOutlineRolagem = true;
+        GameObject casa = GameObject.Find("Casa " + casaPlayer);
+
+        StartCoroutine(PiscadorCasa(casa));
         StartCoroutine(Andador((numero1 + numero2)));
+    }
+
+    IEnumerator PiscadorCasa(GameObject casa) {
+        Outline outline = null;
+
+        if (casa.GetComponent<Outline>() != null) {
+            outline = casa.GetComponent<Outline>();
+        } else {
+            outline = casa.AddComponent<Outline>();
+        }
+        ColorUtility.TryParseHtmlString("#FF8A00", out colorOutLine);
+        casa.GetComponent<Outline>().OutlineColor = colorOutLine;
+        casa.GetComponent<Outline>().OutlineWidth = 10.0f;
+        outline.enabled = true;
+
+        yield return new WaitForSeconds(1);
+        while (Variaveis.mostraOutlineRolagem) {
+            yield return 0;
+        }
+
+        outline.enabled = false;
+
+        Destroy(casa.GetComponent<Outline>());
     }
 
     IEnumerator Andador(int numero) {
