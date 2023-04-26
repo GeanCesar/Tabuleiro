@@ -74,6 +74,7 @@ public class CompraController : MonoBehaviour {
         if (cidadeAtual.dono != null) {
             cidadeAtual.dono.dinheiro = cidadeAtual.dono.dinheiro + cidadeAtual.valorRecompra;
             playerAtual.dinheiro = playerAtual.dinheiro - cidadeAtual.valorRecompra;
+            NumberCounter.mudaDinheiro(cidadeAtual.dono);
         } else {
             playerAtual.dinheiro = playerAtual.dinheiro - cidadeAtual.valorCompra;
         }
@@ -81,5 +82,7 @@ public class CompraController : MonoBehaviour {
         cidadeAtual.dono = playerAtual;
         TMP_Text valorCasa = GameObject.Find("Valor Casa " + cidadeAtual.id).GetComponent<TMP_Text>();
         valorCasa.text = "$ " + cidadeAtual.valorAluguel;
+
+        NumberCounter.mudaDinheiro(playerAtual);
     }
 }

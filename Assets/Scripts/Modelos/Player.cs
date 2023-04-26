@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player {
@@ -11,4 +12,5 @@ public class Player {
     public bool jogando = true;
     public bool adicionaDinheiro = true;
     public GameObject playerObject;
+    public TMP_Text textDinheiro;
 }

@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     Player player;
 
     public GameObject playerObject;
+    public TMP_Text textDinheiro;
+
 
     void Start() {
         player = Variaveis.getPlayer(int.Parse(playerObject.name.Substring(7, 1)));
         player.playerObject = playerObject;
+        player.textDinheiro = textDinheiro;
     }
 
     void Update() { }

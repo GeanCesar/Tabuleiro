@@ -30,6 +30,7 @@ public class CasaController : MonoBehaviour {
                 && Variaveis.getPlayer(collision.gameObject).adicionaDinheiro) {
                 Variaveis.getPlayer(collision.gameObject).dinheiro += Variaveis.valorAAdicionar;
                 Variaveis.getPlayer(collision.gameObject).adicionaDinheiro = false;
+                NumberCounter.mudaDinheiro(Variaveis.getPlayer(collision.gameObject));
             }
         }
         playersParados++;
@@ -46,6 +47,10 @@ public class CasaController : MonoBehaviour {
         if (Variaveis.getCidade(casa).dono != null && Variaveis.getCidade(casa).dono != jogador) {
             jogador.dinheiro -= Variaveis.getCidade(casa).valorAluguel;
             Variaveis.getCidade(casa).dono.dinheiro += Variaveis.getCidade(casa).valorAluguel;
+
+            NumberCounter.mudaDinheiro(jogador);
+            NumberCounter.mudaDinheiro(Variaveis.getCidade(casa).dono);
+
             if (Variaveis.getCidade(casa).valorRecompra < jogador.dinheiro) {
                 compraController.mostrarCompra(Variaveis.getCidade(casa), jogador);
             } else {
